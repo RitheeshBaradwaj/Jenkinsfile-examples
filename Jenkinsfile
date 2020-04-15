@@ -1,28 +1,41 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Build Stage') {
             steps {
-                sh 'echo "Fail!"; exit 1'
+                sh 'echo "We are at Building..."'
+                sh 'echo "Building finished!"'
             }
         }
+        stage('Testing Stage') {
+            steps {
+                sh 'echo "Testing..."'
+                sh 'echo "Testing finished!"'
+            }
+        }
+        stage('Deployment Stage') {
+            steps {
+                sh 'echo "Deploying..."'
+                sh 'echo "Deploying finished"'
+            }
+        }
+        
     }
     post {
         always {
-            echo 'This will always run'
+            echo 'We came to an end!'
         }
         success {
-            echo 'This will run only if successful'
+            echo 'Build is Successful brother!'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'Sorry mate! Build is Failed! :('
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'Run was marked as unstable'
         }
         changed {
-            echo 'This will run only if the state of the Pipeline has changed'
-            echo 'For example, if the Pipeline was previously failing but is now successful'
+            echo 'Hey look at this, Pipeline state is changed.'
         }
     }
 }
