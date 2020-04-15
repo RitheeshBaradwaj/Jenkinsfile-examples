@@ -3,20 +3,20 @@ pipeline {
     stages {
         stage('Build Stage') {
             steps {
-                sh 'echo "We are at Building..."'
-                sh 'echo "Building finished!"'
+                echo "We are at Building..."
+                echo "Building finished!"
             }
         }
         stage('Testing Stage') {
             steps {
-                sh 'echo "Testing..."'
-                sh 'echo "Testing finished!"'
+                echo "Testing..."
+                echo "Testing finished!"
             }
         }
         stage('Deployment Stage') {
             steps {
-                sh 'echo "Deploying..."'
-                sh 'echo "Deploying finished"'
+                echo "Deploying..."
+                echo "Deploying finished"
             }
         }
         
